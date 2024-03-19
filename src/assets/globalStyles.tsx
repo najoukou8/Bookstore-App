@@ -1,0 +1,88 @@
+/* fonts */
+export const FontFamily = {
+    openSansSemiBold: "OpenSans-SemiBold",
+    openSansRegular: "OpenSans-Regular",
+    googleSansTextMedium: "Google Sans Text Medium",
+    whyte: "Whyte",
+    whyteInktrap: "Whyte Inktrap",
+    interSemiBold: "Inter-SemiBold",
+    interRegular: "Inter-Regular",
+    newsreader16ptMedium: "Newsreader16pt-Medium",
+    interLight: "Inter-Light",
+    interMedium: "Inter-Medium",
+    newsreader16ptRegular: "Newsreader16pt-Regular",
+    newsreader16ptItalic: "Newsreader16pt-Italic",
+    interBold: "Inter-Bold",
+    openSansLight: "OpenSans-Light",
+    openSansBold: "OpenSans-Bold",
+    figmaHand: "Figma Hand",
+    android12BodyMediumSemibold: "Google Sants Text",
+  };
+  /* font sizes */
+  export const FontSize = {
+    size_base: 16,
+    size_xl: 20,
+    android12BodyMediumSemibold_size: 14,
+    size_11xl: 30,
+    size_29xl: 48,
+    size_13xl: 32,
+    size_45xl: 64,
+    size_5xl: 24,
+    size_3xl: 22,
+    size_2xs: 11,
+    size_base_4: 15,
+    size_2xs_9: 11,
+    size_3xs: 10,
+  };
+  /* Colors */
+  export const Color = {
+    colorWhitesmoke_100: "#fafaf5",
+    colorWhitesmoke_200: "#f2f2f2",
+    black: "#000",
+    colorGray_100: "#252525",
+    colorGray_200: "#181f3c",
+    colorGray_300: "#121212",
+    colorGray_400: "#0d0d0d",
+    materialThemeSysLightSysUi: "rgba(0, 0, 0, 0.6)",
+    colorGray_500: "rgba(0, 0, 0, 0.06)",
+    colorGainsboro_100: "#e6e6e6",
+    colorGainsboro_200: "#dedede",
+    colorGainsboro_300: "#d9d9d9",
+    colorWhite: "#fff",
+    goldenYellow: "#ffc700",
+    colorDarkolivegreen: "#426b1f",
+    colorDimgray: "#6d6d6d",
+    colorSilver_100: "#c2c2c2",
+    colorSilver_200: "#b8b8b8",
+    colorSteelblue: "#004d7a",
+  };
+  /* Paddings */
+  export const Padding = {
+    p_base: 16,
+    p_5xs: 8,
+    p_xs: 12,
+    p_xl: 20,
+    p_6xl: 25,
+    p_3xs: 10,
+    p_5xs_5: 8,
+    p_13xl: 32,
+    p_25xl: 44,
+    p_7xs: 6,
+    p_smi: 13,
+    p_45xl: 64,
+  };
+  /* border radiuses */
+  export const Border = {
+    br_base: 16,
+    br_8xs: 5,
+    br_5xl: 24,
+    br_9xs: 4,
+    br_5xs: 8,
+    br_xl: 20,
+    br_21xl: 40,
+    br_5xs_9: 8,
+    br_10xs_2: 2,
+    br_4xs: 9,
+    br_7xs: 6,
+  };
+  
