@@ -1,28 +1,28 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from "react-native";
-import { styles } from "../assets/styles";
+import { styles } from "../assets/style/Styles";
 
 const NavBar = () => {
     return (
         <View style={[styles.navbar, styles.navbarFlexBox]}>
         <View style={styles.home}>
-          <View style={[styles.selected, styles.selectedLayout]} />
+          <View style={[styles.selected1, styles.selectedLayout]} />
           <Image
             style={[styles.vectorIcon, styles.iconLayout]}
             resizeMode="cover"
-            source={require("../assets/vector2.png")}
+            source={require("../assets/icons/home.png")}
           />
           <Text style={[styles.home1, styles.home1Layout]}>Home</Text>
         </View>
         <View style={styles.home}>
           <View style={[styles.selected1, styles.selectedLayout]} />
           <Text style={[styles.categories, styles.home1Layout]}>
-            Categories
+            Genres
           </Text>
           <Image
             style={[styles.categoryIcon, styles.iconLayout]}
             resizeMode="cover"
-            source={require("../assets/category1.png")}
+            source={require("../assets/icons/menu.png")}
           />
         </View>
         <View style={styles.home}>
@@ -30,7 +30,7 @@ const NavBar = () => {
           <Image
             style={[styles.categoryIcon, styles.iconLayout]}
             resizeMode="cover"
-            source={require("../assets/shopping-cart.png")}
+            source={require("../assets/icons/trolley.png")}
           />
           <Text style={[styles.cart1, styles.cartTypo]}>Cart</Text>
         </View>
@@ -39,7 +39,7 @@ const NavBar = () => {
           <Image
             style={[styles.categoryIcon, styles.iconLayout]}
             resizeMode="cover"
-            source={require("../assets/account-box.png")}
+            source={require("../assets/icons/user.png")}
           />
           <Text style={[styles.cart1, styles.cartTypo]}>Account</Text>
         </View>
