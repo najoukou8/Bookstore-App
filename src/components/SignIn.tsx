@@ -1,15 +1,12 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, Image, TouchableOpacity, TextInput} from 'react-native';
+import React, { PropsWithChildren }  from 'react';
+import {StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-const SignIn = () => {
+const SignIn = ({navigation}: PropsWithChildren<any>) => {
  
-  const [state,setState] = useState({
-    email: '',
-    password: '',
-    })
+
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
@@ -43,7 +40,7 @@ const SignIn = () => {
       </View>
    <View style={styles.registerContainer}>
     <Text style={styles.registerText}>New member?     </Text> 
-    <Text style={styles.registerWord}>Register</Text>
+    <Text style={styles.registerWord}  onPress={()=>navigation.navigate('Register')} >Register</Text>
  
    
     </View>   
@@ -87,6 +84,7 @@ const styles= StyleSheet.create({
   borderRadius:20,
   padding:10,
   marginTop: 20,
+  height:56,
   
   },
   pswContainer:{
@@ -96,7 +94,7 @@ const styles= StyleSheet.create({
     backgroundColor:"#DEDEDE",
     borderRadius:20,
     padding:5,
-    height:50,
+    height:56,
     marginTop: 20,
   },
   pswInput:{
