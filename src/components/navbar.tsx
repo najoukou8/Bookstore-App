@@ -1,51 +1,54 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from "react-native";
-import { styles } from "../assets/style/Styles";
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import Home from "../screens/Home"
+import Search from "../screens/Search"
+import Account from "../screens/Account"
+import Cart from "../screens/Cart"
+
+import { StyleSheet } from 'react-native';
+
+const tab = createBottomTabNavigator();
+
+
 
 const NavBar = () => {
     return (
-        <View style={[styles.navbar, styles.navbarFlexBox]}>
-        <View style={styles.home}>
-          <View style={[styles.selected1, styles.selectedLayout]} />
-          <Image
-            style={[styles.vectorIcon, styles.iconLayout]}
-            resizeMode="cover"
-            source={require("../assets/icons/home.png")}
-          />
-          <Text style={[styles.home1, styles.home1Layout]}>Home</Text>
-        </View>
-        <View style={styles.home}>
-          <View style={[styles.selected1, styles.selectedLayout]} />
-          <Text style={[styles.categories, styles.home1Layout]}>
-            Genres
-          </Text>
-          <Image
-            style={[styles.categoryIcon, styles.iconLayout]}
-            resizeMode="cover"
-            source={require("../assets/icons/menu.png")}
-          />
-        </View>
-        <View style={styles.home}>
-          <View style={[styles.selected1, styles.selectedLayout]} />
-          <Image
-            style={[styles.categoryIcon, styles.iconLayout]}
-            resizeMode="cover"
-            source={require("../assets/icons/trolley.png")}
-          />
-          <Text style={[styles.cart1, styles.cartTypo]}>Cart</Text>
-        </View>
-        <View style={styles.home}>
-          <View style={[styles.selected1, styles.selectedLayout]} />
-          <Image
-            style={[styles.categoryIcon, styles.iconLayout]}
-            resizeMode="cover"
-            source={require("../assets/icons/user.png")}
-          />
-          <Text style={[styles.cart1, styles.cartTypo]}>Account</Text>
-        </View>
-      </View>
+        <NavigationContainer>
+          <tab.Navigator
+            screenOptions={({route}) => ({ 
+              tabBarIcon: ({focused, color, size}) => {
+                let iconName;
+              if(route.name == 'Home'){
+                iconName = 'home';
+              }else if(route.name == 'Search'){
+                iconName = 'search-outline';
+              }else if(route.name == 'Account'){
+                iconName = 'person-outline';
+              }else if(route.name == 'Cart'){
+                iconName = 'cart-outline';
+              }
+
+              return <Icon name={iconName} style={styles.Icon}/>
+            }
+          })}
+          >
+              <tab.Screen name='Home' component={Home} />
+              <tab.Screen name='Search' component={Search} />
+              <tab.Screen name='Cart' component={Cart} />
+              <tab.Screen name='Account' component={Account} />
+          </tab.Navigator>
+        </NavigationContainer>
     )};
 
-
+const styles = StyleSheet.create({
+      Icon: {
+        fontSize: 24,
+        color: 'black',
+      }
+});
 
 export default NavBar;
