@@ -4,7 +4,7 @@ import {StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-const SignIn = ({navigation}: PropsWithChildren<any>) => {
+const SignIn = () => {
  
 
   return (
@@ -40,7 +40,7 @@ const SignIn = ({navigation}: PropsWithChildren<any>) => {
       </View>
    <View style={styles.registerContainer}>
     <Text style={styles.registerText}>New member?     </Text> 
-    <Text style={styles.registerWord}  onPress={()=>navigation.navigate('Register')} >Register</Text>
+    <Text style={styles.registerWord}  >Register</Text>
  
    
     </View>   

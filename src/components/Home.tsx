@@ -3,7 +3,6 @@ import React, { PropsWithChildren } from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 
 
-
 const Home= ({navigation}: PropsWithChildren<any>)=>{
     return (
         <View style={styles.container}>
@@ -16,11 +15,12 @@ const Home= ({navigation}: PropsWithChildren<any>)=>{
         </View>
     <View style={styles.buttomContainer}>
       <Text style={styles.Text}>Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!</Text>
-      <TouchableOpacity  style={styles.loginBtn}>
-        <Text style={styles.loginText}  onPress={()=>navigation.navigate('SignIn')}>Get started </Text>
+      
+      <TouchableOpacity  style={styles.loginBtn} onPress={() => navigation.navigate('SignIn')}>
+        <Text style={styles.loginText}  >Get started </Text>
         </TouchableOpacity>
-        <TouchableOpacity  >
-        <Text style={styles.RegisterText} onPress={()=>navigation.navigate('Register')}>Register </Text>
+        <TouchableOpacity  onPress={()=>navigation.navigate('Register')} >
+        <Text style={styles.RegisterText}>Register </Text>
         </TouchableOpacity>
     </View>
     

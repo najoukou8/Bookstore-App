@@ -34,7 +34,7 @@ const Register = (navigation: PropsWithChildren<any>) => {
 
     <View style={styles.loginContainer}>
     <Text style={styles.loginText}>Already a member?</Text> 
-    <Text style={styles.loginWord} onPress={()=>navigation.navigate('SignIn')}>SignIn</Text>
+    <Text style={styles.loginWord}> SignIn</Text>
     
    
     </View>   
