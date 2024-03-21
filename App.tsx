@@ -20,9 +20,9 @@ function App( ): React.JSX.Element {
   return (
     <NavigationContainer>
   <Stack.Navigator initialRouteName="Home">
-  <Stack.Screen name="Home" component={Home} />
-  <Stack.Screen name="Register" component={Register} /> 
-  <Stack.Screen name="SignIn" component={SignIn} /> 
+  <Stack.Screen name="Home" options={{ headerShown: false }} component={Home} />
+  <Stack.Screen name="Register" options={{ headerShown: false }} component={Register} /> 
+  <Stack.Screen name="SignIn" options={{ headerShown: false }} component={SignIn} /> 
 
   </Stack.Navigator>
   </NavigationContainer>
