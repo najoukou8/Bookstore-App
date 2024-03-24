@@ -18,7 +18,7 @@ const tab = createBottomTabNavigator();
 const NavBar = () => {
     return (
         <NavigationContainer>
-          <tab.Navigator
+          <tab.Navigator 
             screenOptions={({route}) => ({ 
               tabBarIcon: ({focused, color, size}) => {
                 let iconName;
@@ -36,10 +36,10 @@ const NavBar = () => {
             }
           })}
           >
-              <tab.Screen name='Home' component={Home} />
-              <tab.Screen name='Search' component={Search} />
-              <tab.Screen name='Cart' component={Cart} />
-              <tab.Screen name='Account' component={Account} />
+              <tab.Screen name='Home' component={Home} options={{ headerShown: false }} />
+              <tab.Screen name='Search' component={Search} options={{ headerShown: false }} />
+              <tab.Screen name='Cart' component={Cart} options={{ headerShown: false }}/>
+              <tab.Screen name='Account' component={Account} options={{ headerShown: false }}/>
           </tab.Navigator>
         </NavigationContainer>
     )};

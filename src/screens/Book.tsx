@@ -1,13 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+
+import BookCard from "../components/book/bookCardDeal";
 import Heading from "../components/heading";
 
 
-
-
-const Cart = () => {
-
+const Book = () => {
   const navigation = useNavigation();
 
   const handleBack = () => {
@@ -15,16 +14,15 @@ const Cart = () => {
   };
 
     return (
-        <View style={styles.container}> 
+        <View style={styles.container}>             
             <View>
-            <Heading title="Cart" onPressBack={handleBack} />
+                <Heading title="Details" onPressBack={handleBack} />
             </View> 
          
           <Text>View your Cart</Text>
          </View>
         );
     };
-
     const styles= StyleSheet.create({
         container:{
             flex: 1,
@@ -32,5 +30,4 @@ const Cart = () => {
             textAlign:'center',
             padding:20,
         },    });
-
-export default Cart;
+export default Book;

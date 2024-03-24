@@ -8,13 +8,13 @@ interface HeadingProps {
   onPressBack: () => void;
 }
 
-const Heading: React.FC<HeadingProps> = ({ title, onPressBack }) => {
+const HeadingHome: React.FC<HeadingProps> = ({ title, onPressBack }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onPressBack} >
-        <Icon name="arrow-back" size={24} color="black" />
-      </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
+      <TouchableOpacity onPress={onPressBack} >
+        <Icon name="search-outline" size={24} color="black" />
+      </TouchableOpacity>
     </View>
   );
 };
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Heading;
+export default HeadingHome;
