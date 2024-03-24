@@ -24,7 +24,7 @@ const Home = () => {
     return (
         <ScrollView style={styles.container}>   
             <HeadingHome title="Happy Reading!" onPressBack={handleBack} />          
-             <View style={styles.section, styles.section1}> 
+             <View style={ [styles.section, styles.section1]}>  
                 <Text style={styles.subTitles}>Best Deals</Text>
                 <ScrollableBookListDeal/> 
              </View>
