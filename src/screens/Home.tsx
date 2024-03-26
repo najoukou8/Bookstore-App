@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import HeadingHome from "../components/headingHome";
-import BookCard from "../components/book/bookCardDeal";
 import ScrollableBookListDeal from "../components/book/ScrollableBookListDeal";
 import ScrollableBook from "../components/book/ScrollableBook";
 import { FontFamily } from "../assets/style/globalStyles";
@@ -24,7 +23,7 @@ const Home = () => {
     return (
         <ScrollView style={styles.container}>   
             <HeadingHome title="Happy Reading!" onPressBack={handleBack} />          
-             <View style={styles.section, styles.section1}> 
+             <View style={ [styles.section, styles.section1]}> 
                 <Text style={styles.subTitles}>Best Deals</Text>
                 <ScrollableBookListDeal/> 
              </View>

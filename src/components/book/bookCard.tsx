@@ -33,7 +33,7 @@ interface Book {
         height: 230,
         width: 140,
         overflow: 'hidden',
-        elevation: 2,
+        elevation: 5,
         borderRadius: 5, 
   
       },
@@ -89,7 +89,7 @@ interface Book {
         left: 10,
         fontSize: 12,
         marginBottom: 5,
-        color: 'white', // Adjust text color
+        color: 'white', 
       },
   });
   

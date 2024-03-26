@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, ScrollView, Text, StyleSheet, FlatList, Dimensions } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import BookCard from './bookCard';
 import { ViewToken } from 'react-native';
 
@@ -32,8 +32,6 @@ const ScrollableBook = () => {
     
     const books = [book1, book2, book3];
       
-    const [activeIndex, setActiveIndex] = useState(0);
-
     
     return (
         <View style={styles.container}>
@@ -43,7 +41,7 @@ const ScrollableBook = () => {
                     showsHorizontalScrollIndicator={false}
                     renderItem={({ item }) => (
                         <View style={styles.bookItem}>
-                            <BookCard {...item} />
+                            <TouchableOpacity  ><BookCard {...item} /></TouchableOpacity>
                         </View>
                     )}
                     keyExtractor={item => item.title}
