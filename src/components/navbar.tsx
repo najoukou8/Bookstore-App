@@ -17,7 +17,7 @@ const tab = createBottomTabNavigator();
 
 const NavBar = () => {
     return (
-        <NavigationContainer>
+        
           <tab.Navigator 
             screenOptions={({route}) => ({ 
               tabBarIcon: ({focused, color, size}) => {
@@ -41,7 +41,6 @@ const NavBar = () => {
               <tab.Screen name='Cart' component={Cart} options={{ headerShown: false }}/>
               <tab.Screen name='Account' component={Account} options={{ headerShown: false }}/>
           </tab.Navigator>
-        </NavigationContainer>
     )};
 
 const styles = StyleSheet.create({

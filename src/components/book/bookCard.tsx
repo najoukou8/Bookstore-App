@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Color } from '../../assets/style/globalStyles';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import {navigateToBookDetails} from '../navigation';
 
 interface Book {
     title: string;
@@ -10,21 +12,23 @@ interface Book {
     category: string;
   }
   
-  const BookCard: React.FC<Book> = ({ title, author,category, price, imageUrl })=> {
-      return (
+  const BookCard: React.FC<Book> = ({ title, author,category, price, imageUrl})=> {
+
+        return (
         <View style={styles.container}>
             <View style={styles.cover}>
                 <Image source={{ uri: imageUrl }} style={styles.image} />
             </View>
             <View style={styles.textContainer}>
-                <Text style={styles.category}>{category}</Text>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.author}>{author}</Text>
-                <Text style={styles.price}>{price}</Text>
+              <Text style={styles.category}>{category}</Text>
+              <Text style={styles.title}>{title}</Text>
+              <Text style={styles.author}>{author}</Text>
+              <Text style={styles.price}>{price}</Text>
             </View>
-      </View>
-    );
-  };
+          </View>
+      
+  );
+};
 
   const styles = StyleSheet.create({
     container: {

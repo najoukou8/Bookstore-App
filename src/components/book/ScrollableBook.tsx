@@ -1,10 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { View, ScrollView, Text, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
+import { View, ScrollView, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import BookCard from './bookCard';
 import { ViewToken } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { navigateToBookDetails, Book } from '../navigation';
 
 
 const ScrollableBook = () => {
+
+
     const book1 = {
         title: 'The Great Gatsby',
         author: 'F. Scott Fitzgerald',
@@ -31,8 +35,16 @@ const ScrollableBook = () => {
       };
     
     const books = [book1, book2, book3];
-      
-    
+
+    const navigation = useNavigation();
+
+    const handleBookPress = (book:Book) => {
+        navigateToBookDetails(navigation, book);
+     };
+
+    if (!books || books.length === 0) {
+        return null; 
+    }
     return (
         <View style={styles.container}>
                 <FlatList
@@ -41,7 +53,9 @@ const ScrollableBook = () => {
                     showsHorizontalScrollIndicator={false}
                     renderItem={({ item }) => (
                         <View style={styles.bookItem}>
-                            <TouchableOpacity  ><BookCard {...item} /></TouchableOpacity>
+                             <TouchableOpacity onPress={() => handleBookPress(item)}>
+                                <BookCard title={item.title} author={item.author} price={item.price} category={item.category} imageUrl={item.imageUrl} />
+                            </TouchableOpacity>
                         </View>
                     )}
                     keyExtractor={item => item.title}
@@ -50,8 +64,8 @@ const ScrollableBook = () => {
                 />
         </View>
     );
-  };
-
+ 
+};
   const styles = StyleSheet.create({
     container: {
         flex: 1,

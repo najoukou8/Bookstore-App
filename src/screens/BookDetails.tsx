@@ -2,11 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
-import BookCard from "../components/book/bookCardDeal";
 import Heading from "../components/heading";
 
 
-const Book = () => {
+const BookDetails = () => {
   const navigation = useNavigation();
 
   const handleBack = () => {
@@ -19,7 +18,7 @@ const Book = () => {
                 <Heading title="Details" onPressBack={handleBack} />
             </View> 
          
-          <Text>View your Cart</Text>
+          <Text>View details books</Text>
          </View>
         );
     };
@@ -30,4 +29,7 @@ const Book = () => {
             textAlign:'center',
             padding:20,
         },    });
-export default Book;
+
+
+
+export default BookDetails;
