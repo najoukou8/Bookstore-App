@@ -1,16 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { PropsWithChildren }  from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-const SignIn = () => {
+const SignIn = ({navigation}: PropsWithChildren<any>) => {
  
+  const navigationback = useNavigation();
+
+  const handleBack = () => {
+    navigationback.goBack(); 
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
-        <TouchableOpacity>
+      <TouchableOpacity onPress={() => handleBack}>
       <Icon  name="arrowleft" size={30} color="black"  />
         </TouchableOpacity>
         <Text style={styles.topText}>
@@ -40,7 +46,10 @@ const SignIn = () => {
       </View>
    <View style={styles.registerContainer}>
     <Text style={styles.registerText}>New member?     </Text> 
+    <TouchableOpacity  onPress={()=>navigation.navigate('Register')}>
     <Text style={styles.registerWord}  >Register</Text>
+    </TouchableOpacity>
+   
  
    
     </View>   

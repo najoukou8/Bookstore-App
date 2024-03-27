@@ -8,10 +8,10 @@ const Home= ({navigation}: PropsWithChildren<any>)=>{
         <View style={styles.container}>
             <View style={styles.Imagecontainer}>
            <Image style={styles.cover}
-       source={require('../assets/books.png')}/>
+            source={require('../assets/books.png')}/>
        
-       <Image style={styles.logo}
-       source={require('../assets/logo.png')}/>
+            <Image style={styles.logo}
+            source={require('../assets/logo.png')}/>
         </View>
     <View style={styles.buttomContainer}>
       <Text style={styles.Text}>Read more and stress less with our online book shopping app. Shop from anywhere you are and discover titles that you love. Happy reading!</Text>
@@ -19,7 +19,7 @@ const Home= ({navigation}: PropsWithChildren<any>)=>{
       <TouchableOpacity  style={styles.loginBtn} onPress={() => navigation.navigate('SignIn')}>
         <Text style={styles.loginText}  >Get started </Text>
         </TouchableOpacity>
-        <TouchableOpacity  onPress={()=>navigation.navigate('Register')} >
+        <TouchableOpacity  onPress={()=> navigation.navigate('Register')} >
         <Text style={styles.RegisterText}>Register </Text>
         </TouchableOpacity>
     </View>
@@ -58,7 +58,7 @@ const styles= StyleSheet.create({
   Text:{ 
     color:"#004D7A",
     fontSize:16,
-    marginBottom:50,
+    marginBottom:20,
     textAlign:'center',
   },
   loginBtn:{

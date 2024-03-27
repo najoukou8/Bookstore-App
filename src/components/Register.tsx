@@ -1,15 +1,23 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { PropsWithChildren } from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
+
 const Register = (navigation: PropsWithChildren<any>) => {
  
+  const navigationback = useNavigation();
+
+  const handleBack = () => {
+    navigationback.goBack(); 
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.topBar}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() =>handleBack}>
       <Icon  name="arrowleft" size={30} color="black"  />
         </TouchableOpacity>
         <Text style={styles.topText}> Register  </Text>
@@ -26,7 +34,7 @@ const Register = (navigation: PropsWithChildren<any>) => {
     <Text style={styles.registerText}>Register </Text>
     </TouchableOpacity>
 
-    <TouchableOpacity  style={styles.googleBtn}>
+    <TouchableOpacity  style={styles.googleBtn} >
       <Icon name='google' size={20} color="#DB4437" />
     <Text style={styles.registerGoogle}> Sign up with google</Text>
     </TouchableOpacity>
@@ -34,8 +42,11 @@ const Register = (navigation: PropsWithChildren<any>) => {
 
     <View style={styles.loginContainer}>
     <Text style={styles.loginText}>Already a member?</Text> 
-    <Text style={styles.loginWord}> SignIn</Text>
+    <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+    <Text style={styles.loginWord}  > SignIn</Text>
     
+    </TouchableOpacity>
+   
    
     </View>   
     </View>
