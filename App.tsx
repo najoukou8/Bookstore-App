@@ -11,19 +11,7 @@ function App(): React.JSX.Element {
   return (
     
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="NavBar"
-          component={NavBar}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="BookDetails"
-          component={BookDetails}
-          options={{ headerShown: false }}
-        />
-
-      </Stack.Navigator>
+      <NavBar/>
     </NavigationContainer>
   );
 }
