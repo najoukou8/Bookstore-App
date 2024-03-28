@@ -1,16 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Color } from '../../assets/style/globalStyles';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
-import {navigateToBookDetails} from '../navigation';
+import { Book } from '../../types/book';
 
-interface Book {
-    title: string;
-    author: string;
-    price: string;
-    imageUrl: string;
-    category: string;
-  }
+
+
   
   const BookCard: React.FC<Book> = ({ title, author,category, price, imageUrl})=> {
 

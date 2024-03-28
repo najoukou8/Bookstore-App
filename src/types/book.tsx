@@ -2,8 +2,10 @@
 export interface Book {
     title: string;
     author: string;
-    price: number;
+    price: string;
     category: string;
+    description: string;
+    imageUrl: string;
     // Add more properties as needed
   }
   
