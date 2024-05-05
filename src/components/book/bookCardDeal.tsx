@@ -1,29 +1,35 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-
+import {View, Text, Image, StyleSheet} from 'react-native';
 
 interface Book {
   title: string;
   author: string;
   price: string;
   discount: string;
-  imageUrl: string;
+  imageLink: string;
   category: string;
 }
 
-const BookCardDeal: React.FC<Book> = ({ title, author,category, price, imageUrl, discount })=> {
-    return (
+const BookCardDeal: React.FC<Book> = ({
+  title,
+  author,
+  category,
+  price,
+  imageLink,
+  discount,
+}) => {
+  const discountPercentage = parseInt(parseFloat(discount) * 100);
+  return (
     <View style={styles.container}>
-      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <Image source={{uri: imageLink}} style={styles.image} />
       <View style={styles.details}>
         <Text style={styles.category}>{category}</Text>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.author}>{author}</Text>
-        <Text style={styles.price}>{price}</Text>
+        <Text style={styles.price}>{price}€</Text>
         <View style={styles.discountBox}>
-           <Text style={styles.discountText}>{discount}% off</Text>
+          <Text style={styles.discountText}>{discountPercentage}% off</Text>
         </View>
-        
       </View>
     </View>
   );
@@ -37,7 +43,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     elevation: 2,
     borderRadius: 5,
-
   },
   image: {
     width: 100,
@@ -47,34 +52,34 @@ const styles = StyleSheet.create({
   details: {
     flex: 1,
     padding: 10,
-    backgroundColor: "black",
+    backgroundColor: 'black',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 5,
     display: 'flex',
-    color:"white",
+    color: 'white',
   },
   author: {
     fontSize: 16,
     marginBottom: 5,
-    color:"white",
+    color: 'white',
   },
   category: {
     fontSize: 14,
     marginBottom: 5,
-    color:"white",
+    color: 'white',
   },
   price: {
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 5,
-    color:"white",
+    color: 'white',
   },
   description: {
     fontSize: 14,
-    color:"white",
+    color: 'white',
   },
   discountBox: {
     backgroundColor: '#f0f0f0',

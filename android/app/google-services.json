@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "932839912889",
+    "firebase_url": "https://booksproject-5adfb-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "booksproject-5adfb",
+    "storage_bucket": "booksproject-5adfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932839912889:android:c15e27b344c48383647268",
+        "android_client_info": {
+          "package_name": "com.bookstoreproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtrb6k_hT28312hoTIDDNTx67Hbk9BEz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,7 +5,7 @@ export interface Book {
     price: string;
     category: string;
     description: string;
-    imageUrl: string;
+    imageLink: string;
     // Add more properties as needed
   }
   
