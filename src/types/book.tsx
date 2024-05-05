@@ -6,6 +6,7 @@ export interface Book {
     category: string;
     description: string;
     imageLink: string;
-    // Add more properties as needed
+    rating: string;
+
   }
   

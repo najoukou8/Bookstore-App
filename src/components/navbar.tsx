@@ -12,6 +12,8 @@ import BookDetails from '../screens/BookDetails';
 
 import {StyleSheet} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+import CategoryBooks from '../screens/CategoryBooks';
+import SearchResults from '../screens/SearchResults';
 
 const tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -26,6 +28,21 @@ const HomeStackScreen = () => (
     <HomeStack.Screen
       name="BookDetails"
       component={BookDetails}
+      options={{headerShown: false}}
+    />
+    <HomeStack.Screen
+      name="CategoryBooks"
+      component={CategoryBooks}
+      options={{headerShown: false}}
+    />
+    <HomeStack.Screen
+      name="SearchResults"
+      component={SearchResults}
+      options={{headerShown: false}}
+    />
+    <HomeStack.Screen
+      name="Search"
+      component={Search}
       options={{headerShown: false}}
     />
   </HomeStack.Navigator>

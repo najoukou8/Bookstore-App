@@ -1,14 +1,8 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import { Book } from '../../types/book';
 
-interface Book {
-  title: string;
-  author: string;
-  price: string;
-  discount: string;
-  imageLink: string;
-  category: string;
-}
+
 
 const BookCardDeal: React.FC<Book> = ({
   title,

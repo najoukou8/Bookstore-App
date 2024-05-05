@@ -5,6 +5,8 @@ import HeadingHome from '../components/headingHome';
 import ScrollableBookListDeal from '../components/book/ScrollableBookListDeal';
 import ScrollableBook from '../components/book/ScrollableBook';
 import {FontFamily} from '../assets/style/globalStyles';
+import ScrollableLatestBooks from '../components/book/ScrollableLatestBooks';
+import ScrollableAllBooks from '../components/book/ScrollableAllBooks';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -26,11 +28,11 @@ const Home = () => {
       </View>
       <View style={styles.section}>
         <Text style={styles.subTitles}>Latest Books</Text>
-        <ScrollableBook />
+        <ScrollableLatestBooks />
       </View>
       <View style={styles.section}>
-        <Text style={styles.subTitles}>Upcoming Books</Text>
-        <ScrollableBook />
+        <Text style={styles.subTitles}>More Books</Text>
+        <ScrollableAllBooks />
       </View>
     </ScrollView>
   );

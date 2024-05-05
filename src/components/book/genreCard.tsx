@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
-import { rgbaColor } from "react-native-reanimated/lib/typescript/reanimated2/Colors";
-import Icon from 'react-native-vector-icons/Ionicons';
+
 import LinearGradient from 'react-native-linear-gradient';
 
 interface Book {

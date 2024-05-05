@@ -1,8 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, FlatList, Dimensions } from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {View, Text, StyleSheet, FlatList, Dimensions} from 'react-native';
 import BookCardDeal from './bookCardDeal';
-import { ViewToken } from 'react-native';
+import {ViewToken} from 'react-native';
 import database from '@react-native-firebase/database';
+import {Touchable} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import navigateToBookDetails from '../navigation';
+import navigation from '../navigation';
+import { useNavigation } from '@react-navigation/native';
 
 const ScrollableBookList = () => {
   const [books, setBooks] = useState([]);
@@ -29,13 +34,12 @@ const ScrollableBookList = () => {
     }
   };
 
-
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const flatListRef = useRef(null);
   const itemWidth = Dimensions.get('window').width / 2.5 + 10;
 
   const onViewableItemsChanged = useRef(
-    ({ viewableItems }: { viewableItems: Array<ViewToken> }) => {
+    ({viewableItems}: {viewableItems: Array<ViewToken>}) => {
       // Update the type of viewableItems
       const visibleIndex = viewableItems[0]?.index;
       if (visibleIndex !== undefined && visibleIndex !== activeIndex) {
@@ -53,11 +57,18 @@ const ScrollableBookList = () => {
     return (
       <View
         key={index}
-        style={[styles.indicator, index === activeIndex && styles.indicatorActive]}
+        style={[
+          styles.indicator,
+          index === activeIndex && styles.indicatorActive,
+        ]}
       />
     );
   };
+  const navigation = useNavigation();
 
+  const handleBookPress = (book: Book) => {
+    navigateToBookDetails(navigation, book);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.listContainer}>
@@ -65,9 +76,11 @@ const ScrollableBookList = () => {
           data={books}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
+          renderItem={({item}) => (
             <View style={styles.bookItem}>
-              <BookCardDeal {...item} />
+              <TouchableOpacity onPress={() => handleBookPress(item)}>
+                <BookCardDeal {...item} />
+              </TouchableOpacity>
             </View>
           )}
           keyExtractor={(item, index) => index.toString()} // Use index as the key extractor since books don't have unique identifiers
@@ -75,7 +88,7 @@ const ScrollableBookList = () => {
           contentContainerStyle={styles.contentContainer}
           onViewableItemsChanged={onViewableItemsChanged}
           onScroll={event => {
-            const { contentOffset } = event.nativeEvent;
+            const {contentOffset} = event.nativeEvent;
             const visibleIndex = calculateVisibleIndex(contentOffset.x);
             setActiveIndex(visibleIndex);
           }}

@@ -13,7 +13,7 @@ import {Book} from '../../types/book';
 import database from '@react-native-firebase/database';
 
 
-const ScrollableBook = () => {
+const ScrollableLatestBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ScrollableBook = () => {
           const book = {id: key, ...booksData[key]};
           return book;
         });
-        booksArray.sort((a, b) => b.rating - a.rating);
+        booksArray.sort((a, b) => b.year - a.year);
         const top10Books = booksArray.slice(0, 10);
         setBooks(top10Books);
       }
@@ -82,44 +82,12 @@ const styles = StyleSheet.create({
   flatList: {
     flexGrow: 0,
   },
-  listContainer: {},
-  contentContainer: {
-    paddingRight: 0,
-    marginBottom: 0,
-  },
+ 
   bookItem: {
     marginRight: 10,
   },
-  bookImage: {
-    width: Dimensions.get('window').width / 2.5,
-    height: 150,
-  },
-  bookInfo: {
-    padding: 5,
-  },
-  bookTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  bookAuthor: {
-    fontSize: 14,
-  },
-  indicatorsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-
-    marginTop: 10,
-  },
-  indicator: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#ccc',
-    margin: 5,
-  },
-  indicatorActive: {
-    backgroundColor: '#000',
-  },
+  
+ 
 });
 
-export default ScrollableBook;
+export default ScrollableLatestBooks;

@@ -43,7 +43,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({route}) => {
       </View>
       <View style={styles.topSection}>
         <View style={styles.imageContainer}>
-          <Image source={{uri: book.imageUrl}} style={styles.image} />
+          <Image source={{uri: book.imageLink}} style={styles.image} />
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.textContainer}>
@@ -55,8 +55,12 @@ const BookDetails: React.FC<BookDetailsProps> = ({route}) => {
             <Text style={styles.category}>{book.category}</Text>
           </View>
           <View style={styles.textContainer}>
+            <Text style={styles.author}>Rating: </Text>
+            <Text style={styles.price}>{book.rating}/5</Text>
+          </View>
+          <View style={styles.textContainer}>
             <Text style={styles.author}>Price: </Text>
-            <Text style={styles.price}>{book.price}</Text>
+            <Text style={styles.price}>{book.price}€</Text>
           </View>
           <TouchableOpacity style={styles.button} onPress={onPress}>
             <Text style={styles.buttonText}>Add to cart</Text>

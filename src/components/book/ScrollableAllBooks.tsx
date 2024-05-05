@@ -12,8 +12,15 @@ import {navigateToBookDetails} from '../navigation';
 import {Book} from '../../types/book';
 import database from '@react-native-firebase/database';
 
+const shuffleArray = array => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
-const ScrollableBook = () => {
+const ScrollableAllBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -29,8 +36,8 @@ const ScrollableBook = () => {
           const book = {id: key, ...booksData[key]};
           return book;
         });
-        booksArray.sort((a, b) => b.rating - a.rating);
-        const top10Books = booksArray.slice(0, 10);
+        const shuffledBooks = shuffleArray(booksArray);
+        const top10Books = shuffledBooks.slice(0, 10);
         setBooks(top10Books);
       }
     } catch (error) {
@@ -122,4 +129,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ScrollableBook;
+export default ScrollableAllBooks;
