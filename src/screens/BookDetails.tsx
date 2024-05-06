@@ -22,12 +22,12 @@ interface BookDetailsProps {
 
 const BookDetails: React.FC<BookDetailsProps> = ({route}) => {
   // Extract the book object from the route params
-  const {book} = route.params;
-
+  const {book } = route.params;
   const navigation = useNavigation();
 
   const handleBack = () => {
-    navigation.goBack();
+      navigation.goBack();
+
   };
   const onPress = () => {
     navigation.navigate('Cart');

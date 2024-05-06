@@ -12,16 +12,17 @@ import BookDetails from '../screens/BookDetails';
 
 import {StyleSheet} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import CategoryBooks from '../screens/CategoryBooks';
-import SearchResults from '../screens/SearchResults';
+
 
 const tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
+const SearchStack = createStackNavigator();
+
 
 const HomeStackScreen = () => (
   <HomeStack.Navigator>
     <HomeStack.Screen
-      name="Home"
+      name="Homepage"
       component={Home}
       options={{headerShown: false}}
     />
@@ -30,29 +31,29 @@ const HomeStackScreen = () => (
       component={BookDetails}
       options={{headerShown: false}}
     />
-    <HomeStack.Screen
-      name="CategoryBooks"
-      component={CategoryBooks}
-      options={{headerShown: false}}
-    />
-    <HomeStack.Screen
-      name="SearchResults"
-      component={SearchResults}
-      options={{headerShown: false}}
-    />
-    <HomeStack.Screen
-      name="Search"
+   
+     </HomeStack.Navigator>
+);
+const SearchStackScreen = () => (
+  <SearchStack.Navigator>
+    <SearchStack.Screen
+      name="SearchPage"
       component={Search}
-      options={{headerShown: false}}
+      options={{ headerShown: false }}
     />
-  </HomeStack.Navigator>
+    <SearchStack.Screen
+      name="BookDetails"
+      component={BookDetails}
+      options={{ headerShown: false }}
+    />
+  </SearchStack.Navigator>
 );
 
 const NavBar = () => {
   return (
     <tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
+        tabBarIcon: ({}) => {
           let iconName;
           if (route.name == 'Home') {
             iconName = 'home';
@@ -75,7 +76,7 @@ const NavBar = () => {
 
       <tab.Screen
         name="Search"
-        component={Search}
+        component={SearchStackScreen}
         options={{headerShown: false}}
       />
       <tab.Screen name="Cart" component={Cart} options={{headerShown: false}} />
