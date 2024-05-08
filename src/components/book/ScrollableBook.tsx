@@ -73,15 +73,10 @@ const ScrollableBook = () => {
     container: {
         flex: 1,
         flexDirection: 'column',
-
-
     },
     flatList: {
         flexGrow: 0,
  
-    },
-    listContainer: {
-      
     },
     contentContainer: {
         paddingRight: 0, 
@@ -90,36 +85,7 @@ const ScrollableBook = () => {
     bookItem: {
         marginRight: 10, 
     },
-    bookImage: {
-        width: Dimensions.get('window').width / 2.5,
-        height: 150,
-    },
-    bookInfo: {
-        padding: 5,
-    },
-    bookTitle: {
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    bookAuthor: {
-        fontSize: 14,
-    },
-    indicatorsContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-
-        marginTop: 10,     
-    },
-      indicator: {
-        width: 8,
-        height: 8,
-        borderRadius: 4,
-        backgroundColor: '#ccc',
-        margin: 5,
-      },
-      indicatorActive: {
-        backgroundColor: '#000',
-      },
+     
 });
 
 export default ScrollableBook;

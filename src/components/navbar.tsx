@@ -9,6 +9,7 @@ import Account from "../screens/Account"
 import Cart from "../screens/Cart"
 
 import BookDetails from '../screens/BookDetails';
+import SignIn from '../screens/SignIn';
 
 
 import { StyleSheet } from 'react-native';
@@ -22,6 +23,8 @@ const HomeStackScreen = () => (
   <HomeStack.Navigator>
     <HomeStack.Screen name="Home" component={Home}  options={{ headerShown: false }} />
     <HomeStack.Screen name="BookDetails" component={BookDetails}  options={{ headerShown: false }} />
+    <HomeStack.Screen name="SignIn" component={SignIn}  options={{ headerShown: false }} />
+
   </HomeStack.Navigator>
 );
 

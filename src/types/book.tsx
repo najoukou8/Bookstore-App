@@ -1,11 +1,11 @@
 // types.ts
 export interface Book {
+    id : string;
     title: string;
     author: string;
-    price: string;
+    price: number;
     category: string;
     description: string;
     imageUrl: string;
-    // Add more properties as needed
   }
   
