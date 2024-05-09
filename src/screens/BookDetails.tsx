@@ -6,10 +6,12 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
-import {RouteProp, useNavigation} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {Book} from '../types/book';
 import Heading from '../components/heading';
+import navigateToBookDetails, { navigateToCart } from '../components/navigation';
 
 type BookDetailsRouteProp = RouteProp<
   {BookDetails: {book: Book}},
@@ -21,16 +23,15 @@ interface BookDetailsProps {
 }
 
 const BookDetails: React.FC<BookDetailsProps> = ({route}) => {
-  // Extract the book object from the route params
   const {book } = route.params;
   const navigation = useNavigation();
 
   const handleBack = () => {
       navigation.goBack();
-
   };
-  const onPress = () => {
-    navigation.navigate('Cart');
+
+  const onxPress  = () => {
+    navigateToCart(navigation,book);
   };
 
   return (
@@ -62,7 +63,7 @@ const BookDetails: React.FC<BookDetailsProps> = ({route}) => {
             <Text style={styles.author}>Price: </Text>
             <Text style={styles.price}>{book.price}€</Text>
           </View>
-          <TouchableOpacity style={styles.button} onPress={onPress}>
+          <TouchableOpacity style={styles.button} onPress={onxPress}>
             <Text style={styles.buttonText}>Add to cart</Text>
           </TouchableOpacity>
         </View>

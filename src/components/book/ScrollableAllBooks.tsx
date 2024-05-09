@@ -70,7 +70,7 @@ const ScrollableAllBooks = () => {
                 category={item.category}
                 imageLink={item.imageLink}
                 description={item.description}
-              />
+                rating={''} id={''}              />
             </TouchableOpacity>
           </View>
         )}
