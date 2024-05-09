@@ -8,22 +8,33 @@ import { Book } from '../../types/book';
 interface CartListProps {
   books: Book[];
   onRemove: (id: string) => void;
+  onQuantityChange: (newQuantity: number) => void; 
 }
 
 const { width } = Dimensions.get('window'); 
 
-const CartList: React.FC<CartListProps> = ({ books, onRemove }) => {
+const CartList: React.FC<CartListProps> = ({ books, onRemove, onQuantityChange }) => {
     const numPages = Math.ceil(books.length / 2);
     const [currentPage, setCurrentPage] = React.useState(0);
     const pages = Array.from({ length: numPages }, (_, index) => {
     const pageContent = books.slice(index * 2, (index + 1) * 2);
+
+    const handleQuantityChange = ( newQuantity: number) => {
+      onQuantityChange(newQuantity);
+    };
+     
+      
+
+
     return (
       <View style={styles.pageContainer} key={index}>
         {pageContent.map(book => (
          <View style={styles.itemContainer}>
             <CartCard
                     book={book}
-                    onRemove={() => onRemove(book.id)}         />
+                    onRemove={() => onRemove(book.id)}  
+                    onQuantityChange={(newQuantity: number) => {handleQuantityChange( newQuantity)}} 
+       />
           </View>
         ))}
       </View>

@@ -19,6 +19,7 @@ const Cart: React.FC<CartProps> = ({route}) => {
   const {book } = route.params ?? {};
   const navigation = useNavigation();
   const [cartItems, setCartItems] = useState<Book[]>([]);
+  const [quantity, setQuantity]= useState(1);
 
 
   useEffect(() => {
@@ -39,9 +40,9 @@ const Cart: React.FC<CartProps> = ({route}) => {
    // Calculate subtotal and total discount
    const { subtotal, totalDiscount } = cartItems.reduce(
     (acc, item) => {
-      acc.subtotal += item.price;
+      acc.subtotal += item.price* quantity;
       if (item.discount) {
-        acc.totalDiscount += item.price * item.discount;
+        acc.totalDiscount += item.price * item.discount* quantity;
       }
       return acc;
     },
@@ -49,14 +50,16 @@ const Cart: React.FC<CartProps> = ({route}) => {
   );
   const shipping = subtotal > 0 ? 10 : 0;
   const total = subtotal + shipping - totalDiscount;
-  
+  const handleQuantityChange = ( newQuantity: number) => {
+    setQuantity(newQuantity);
+  };
 
   return (
     <View style={styles.container}>
       <Heading title="Cart" onPressBack={handleBack} />
       {cartItems.length > 0 ? (
         <ScrollView style={styles.listContainer}>
-          <CartList books={cartItems} onRemove={handleRemoveItem} />
+          <CartList books={cartItems} onRemove={handleRemoveItem} onQuantityChange={(newQuantity: number) => {handleQuantityChange( newQuantity)}}/>
         </ScrollView>
       ) : (
         <View style={styles.emptyCartBackground}>

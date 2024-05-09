@@ -5,21 +5,26 @@ import { Book } from '../../types/book';
 interface CartItemProps {
     book : Book;
     onRemove: () => void;
+    onQuantityChange: (newQuantity: number) => void; 
   }
   
-  const CartItem: React.FC<CartItemProps> = ({ book, onRemove }) => {
+  const CartItem: React.FC<CartItemProps> = ({ book, onRemove, onQuantityChange }) => {
     const [quantity, setQuantity] = useState(1);
 
     const { width: cardWidth } = Dimensions.get('window');
     const imageWidth = cardWidth * 0.2;
   
     const increaseQuantity = () => {
-      setQuantity(quantity + 1);
-    };
+      const newQuantity = quantity + 1;
+      setQuantity(newQuantity);
+      onQuantityChange(newQuantity);
+        };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+      onQuantityChange(newQuantity);
     }
   };
 
