@@ -12,6 +12,7 @@ import BookDetails from '../screens/BookDetails';
 
 import {StyleSheet} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+import Welcome from '../screens/Welcome';
 
 
 const tab = createBottomTabNavigator();
@@ -20,7 +21,8 @@ const SearchStack = createStackNavigator();
 
 
 const HomeStackScreen = () => (
-  <HomeStack.Navigator>
+  <HomeStack.Navigator >
+
     <HomeStack.Screen
       name="Homepage"
       component={Home}
@@ -68,6 +70,7 @@ const NavBar = () => {
           return <Icon name={iconName} style={styles.Icon} />;
         },
       })}>
+   
       <tab.Screen
         name="Home"
         component={HomeStackScreen}

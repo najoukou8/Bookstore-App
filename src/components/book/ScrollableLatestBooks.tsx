@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet,
   FlatList,
-  Dimensions,
   TouchableOpacity,
 } from 'react-native';
 import BookCard from './bookCard';
