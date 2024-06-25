@@ -16,6 +16,7 @@ import database from '@react-native-firebase/database';
 import navigateToBookDetails from '../components/navigation';
 import BookCard from '../components/book/bookCard';
 import GenreCard from '../components/book/genreCard';
+import { Book } from '../types/book';
 
 const Search = () => {
   const navigation = useNavigation();
@@ -81,6 +82,9 @@ const Search = () => {
                 category={book.category}
                 imageLink={book.imageLink}
                 description={book.description}
+                id={book.id}
+                rating={book.rating}
+                discount={book.discount}
               />
             </View>
           </TouchableOpacity>
@@ -169,7 +173,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 10,
     justifyContent: 'center', 
- 
+
   },
   title: {
     fontFamily: FontFamily.openSansSemiBold,

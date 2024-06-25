@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Alert } from "react-native";
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import Heading from "../components/heading";
 import CartList from "../../src/components/book/cartScrollCards"; // Ensure this path is correct
@@ -54,6 +54,24 @@ const Cart: React.FC<CartProps> = ({route}) => {
     setQuantity(newQuantity);
   };
 
+  const handleCheckout = () => {
+    if (cartItems.length === 0) {
+      Alert.alert('Cart is already empty.');
+    } else {
+      Alert.alert(
+        'Proceed to Checkout',
+        'Successfull Checkout',
+        [
+          {
+            text: 'OK',
+            onPress: () => setCartItems([]),
+          },
+        ],
+        { cancelable: false }
+      );
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Heading title="Cart" onPressBack={handleBack} />
@@ -93,7 +111,7 @@ const Cart: React.FC<CartProps> = ({route}) => {
           <Text style={styles.totalLabel}>Total</Text>
           <Text style={styles.totalValue}>${total.toFixed(2)}</Text>
         </View>
-        <TouchableOpacity style={styles.checkoutButton} onPress={() => console.log('Proceed to Checkout')}>
+        <TouchableOpacity style={styles.checkoutButton} onPress={handleCheckout}>
           <Text style={styles.checkoutButtonText}>Proceed to Checkout</Text>
         </TouchableOpacity>
       </View>

@@ -41,10 +41,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 5,
-    width: '85%',
+    width: '87%',
     marginTop: 10,
     borderBottomColor: 'black',
     borderBottomWidth: 1,
+    left: 20,
   },
   searchIconContainer: {
     justifyContent: 'center',

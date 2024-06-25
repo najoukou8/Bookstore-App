@@ -11,6 +11,7 @@ import {
 
 import Icon from 'react-native-vector-icons/AntDesign';
 import auth from '@react-native-firebase/auth';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const SignIn = ({navigation}: PropsWithChildren<any>) => {
   const navigationback = useNavigation();
@@ -24,7 +25,7 @@ const SignIn = ({navigation}: PropsWithChildren<any>) => {
 
   const hundleSignIn = () => {
     if (!email || !password) {
-      Alert.alert('Error', 'Pleae enter email and password');
+      Alert.alert('Error', 'Please enter email and password');
       return;
     }
     setIsLoading(true);
@@ -43,6 +44,7 @@ const SignIn = ({navigation}: PropsWithChildren<any>) => {
   };
 
   return (
+    
     <View style={styles.container}>
       <View style={styles.topBar}>
         <TouchableOpacity onPress={handleBack}>
@@ -82,14 +84,15 @@ const SignIn = ({navigation}: PropsWithChildren<any>) => {
         <TouchableOpacity style={styles.googleBtn}>
           <Icon name="google" size={20} color="#DB4437" />
           <Text style={styles.loginGoogle}> Sign in with google</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.registerContainer}>
+        </TouchableOpacity> 
+        <View style={styles.registerContainer}>
         <Text style={styles.registerText}>New member? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
           <Text style={styles.registerWord}>Register</Text>
         </TouchableOpacity>
       </View>
+      </View>
+     
     </View>
   );
 };
@@ -179,6 +182,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     textAlign: 'center',
+    margin: 20,
   },
   registerText: {
     color: 'black',
