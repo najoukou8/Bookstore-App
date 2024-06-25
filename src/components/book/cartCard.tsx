@@ -1,24 +1,35 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-import { Book } from '../../types/book';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
+import {Book} from '../../types/book';
 
 interface CartItemProps {
-    book : Book;
-    onRemove: () => void;
-    onQuantityChange: (newQuantity: number) => void; 
-  }
-  
-  const CartItem: React.FC<CartItemProps> = ({ book, onRemove, onQuantityChange }) => {
-    const [quantity, setQuantity] = useState(1);
+  book: Book;
+  onRemove: () => void;
+  onQuantityChange: (newQuantity: number) => void;
+}
 
-    const { width: cardWidth } = Dimensions.get('window');
-    const imageWidth = cardWidth * 0.2;
-  
-    const increaseQuantity = () => {
-      const newQuantity = quantity + 1;
-      setQuantity(newQuantity);
-      onQuantityChange(newQuantity);
-        };
+const CartItem: React.FC<CartItemProps> = ({
+  book,
+  onRemove,
+  onQuantityChange,
+}) => {
+  const [quantity, setQuantity] = useState(1);
+
+  const {width: cardWidth} = Dimensions.get('window');
+  const imageWidth = cardWidth * 0.2;
+
+  const increaseQuantity = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    onQuantityChange(newQuantity);
+  };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
@@ -30,7 +41,10 @@ interface CartItemProps {
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: book.imageLink }} style={[styles.image, { width: imageWidth }]} />
+      <Image
+        source={{uri: book.imageLink}}
+        style={[styles.image, {width: imageWidth}]}
+      />
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{book.title}</Text>
         <Text style={styles.genre}>{book.category}</Text>
@@ -72,14 +86,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
-    fontWeight: 'bold',    color : "#fff",
+    fontWeight: 'bold',
+    color: '#fff',
   },
   genre: {
     color: '#fff',
   },
   decrease: {
     fontSize: 18,
-    color: 'black',   
+    color: 'black',
   },
   delete: {
     fontSize: 18,
@@ -87,15 +102,15 @@ const styles = StyleSheet.create({
   },
   plus: {
     fontSize: 18,
-    color: 'black',    
-
+    color: 'black',
   },
   quantity: {
     color: '#fff',
   },
   quantityContainer: {
     flexDirection: 'row',
-    alignItems: 'center',    color : "#fff",
+    alignItems: 'center',
+    color: '#fff',
   },
   button: {
     padding: 5,
@@ -103,19 +118,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
     width: '10%',
-    justifyContent: 'center', 
+    justifyContent: 'center',
     backgroundColor: '#fff',
   },
   price: {
-    fontWeight: 'bold',    color : "#fff",
+    fontWeight: 'bold',
+    color: '#fff',
   },
   removeButton: {
     padding: 5,
     color: 'white',
     borderRadius: 5,
   },
-
-  
 });
 
 export default CartItem;

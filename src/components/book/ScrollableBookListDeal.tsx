@@ -1,12 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, Text, StyleSheet, FlatList, Dimensions} from 'react-native';
+import {View,  StyleSheet, FlatList, Dimensions} from 'react-native';
 import BookCardDeal from './bookCardDeal';
 import {ViewToken} from 'react-native';
 import database from '@react-native-firebase/database';
-import {Touchable} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import navigateToBookDetails from '../navigation';
-import navigation from '../navigation';
 import { useNavigation } from '@react-navigation/native';
 
 const ScrollableBookList = () => {
@@ -35,7 +33,6 @@ const ScrollableBookList = () => {
   };
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const flatListRef = useRef(null);
   const itemWidth = Dimensions.get('window').width / 2.5 + 10;
 
   const onViewableItemsChanged = useRef(
@@ -83,7 +80,7 @@ const ScrollableBookList = () => {
               </TouchableOpacity>
             </View>
           )}
-          keyExtractor={(item, index) => index.toString()} // Use index as the key extractor since books don't have unique identifiers
+          keyExtractor={(item, index) => index.toString()} 
           style={styles.flatList}
           contentContainerStyle={styles.contentContainer}
           onViewableItemsChanged={onViewableItemsChanged}

@@ -18,9 +18,7 @@ import auth from '@react-native-firebase/auth';
 const Register = (props: PropsWithChildren<any>) => {
   const navigationback = useNavigation();
   const navigation = useNavigation();
-
   const [isLoading, setIsLoading] = useState(false);
-
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,9 +40,9 @@ const Register = (props: PropsWithChildren<any>) => {
     setIsLoading(true);
     auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        // Save additional user data to Firestore
-        database()
+      .then((userCredential) => {
+        const user = userCredential.user;
+        database()        
           .ref('users/' + user.uid)
           .set({
             fullName: fullName,

@@ -12,7 +12,6 @@ import BookDetails from '../screens/BookDetails';
 
 import {StyleSheet} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Welcome from '../screens/Welcome';
 
 
 const tab = createBottomTabNavigator();

@@ -37,7 +37,6 @@ const Cart: React.FC<CartProps> = ({route}) => {
     setCartItems(currentItems => currentItems.filter(item => item.id !== id));
   };
   
-   // Calculate subtotal and total discount
    const { subtotal, totalDiscount } = cartItems.reduce(
     (acc, item) => {
       acc.subtotal += item.price* quantity;

@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import database from '@react-native-firebase/database';
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 
 const Account = () => {
   const [userName, setUserName] = useState('');

@@ -14,13 +14,14 @@ import auth from '@react-native-firebase/auth';
 
 const SignIn = ({navigation}: PropsWithChildren<any>) => {
   const navigationback = useNavigation();
-
-  const handleBack = () => {
-    navigationback.goBack();
-  };
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  
+  const handleBack = () => {
+    navigationback.goBack();
+  };
+
 
   const hundleSignIn = () => {
     if (!email || !password) {
