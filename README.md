@@ -1,5 +1,36 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+Notre application de bookstore fournit une architecture robuste basée sur React Native, utilisant Firebase pour l'authentification des utilisateurs et la gestion des données. Elle offre une mise en page responsive adaptée aux appareils mobiles, avec une gestion efficace du panier d'achats et des fonctionnalités de mise à jour de profil utilisateur. L'application utilise également une base de données Firebase pour stocker les informations des utilisateurs et des livres.
+
+# Les fonctionnalités de notre application : 
+Connexion avec Email et Mot de Passe : on a utilisé le Firebase Auth pour authentifier l'utilisateur avec auth().signInWithEmailAndPassword(email, password). 
+
+Création de Compte : on a utilisé le Firebase Auth pour créer un nouvel utilisateur avec auth().createUserWithEmailAndPassword(email, password). 
+
+Sauvegarde des Données Utilisateur : on a utilisé le  Firebase Realtime Database pour enregistrer les informations de l'utilisateur (nom complet et email) dans la base de données sous la référence users/user.uid. Pour les afficher après dans le screen profile. 
+
+Gestion des Erreurs : Affichage des alertes en cas d'erreur ou de succès via Alert.alert. 
+
+Affichage des détails de livre : Lorsqu'un utilisateur clique sur un livre, il est redirigé vers l'écran de détails du livre (BookDetails) avec la fonction useNavigation . 
+
+Recherche de Livres : Pour la fonctionnalité de recherche, nous avons utilisé Firebase Database pour récupérer et filtrer les livres. Lorsqu'un utilisateur saisit une requête de recherche ou sélectionne une catégorie, nous utilisons database().ref('/books').once('value') pour récupérer tous les livres de la base de données. Ensuite, nous filtrons ces livres en fonction de la requête de recherche (titre ou auteur) ou de la catégorie sélectionnée. Les résultats filtrés sont affichés sous forme de grille de cartes de livres, et l'utilisateur peut cliquer sur une carte pour voir les détails du livre. 
+
+Ajout au Panier : Pour la fonctionnalité d'ajout au panier, Lorsque l'utilisateur sélectionne un livre à partir de l'écran de détail du livre, nous ajoutons ce livre à notre liste cartItems en utilisant useState. 
+
+Affichage du panier : L'écran du panier (Cart) affiche tous les articles actuellement ajoutés. Nous utilisons une ScrollView avec une liste de composants CartList pour afficher chaque élément du panier. 
+
+Profile : L'écran de profil affiche les informations personnelles de l'utilisateur telles que son nom, son email et son adresse. Les données sont récupérées depuis Firebase au chargement de l'écran. L'utilisateur peut également mettre à jour son adresse. Un bouton de déconnexion est disponible pour se déconnecter de l'application.  
+
+# Les composants de notre application :  
+
+ScrollableBookListDeal : ce composant est pour récupérer les livres avec la fonction fetchBooks. Après la récupération des données, les livres ayant une réduction sont filtrés et enregistrés dans l'état books. 
+
+ScrollableBook : Comme le composant précédent, il récupère les livres mais uniquement les 10 livres ayant le rating les plus élevées.  
+
+ScrollableAllBooks : il récupère tous les livres. 
+
+NavBar: une barre de navigation inférieure qui permet de naviguer entre différentes sections (la page d'accueil, la recherche, le compte et le panier). Les fontions utilisés ‘createBottomTabNavigator’ pour la barre de navigation inférieure, ‘Ionicons’ pour les icônes, et ‘createStackNavigator’ pour les piles de navigation. 
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
