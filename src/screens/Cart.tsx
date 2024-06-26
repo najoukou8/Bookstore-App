@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Alert } from "react-native";
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import Heading from "../components/heading";
-import CartList from "../../src/components/book/cartScrollCards"; // Ensure this path is correct
+import CartList from "../../src/components/book/cartScrollCards"; 
 import { Book } from "../types/book";
 
 

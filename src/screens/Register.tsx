@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {PropsWithChildren, useState} from 'react';
+import React, { useState} from 'react';
 import database from '@react-native-firebase/database';
 
 import {
@@ -15,12 +15,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 import auth from '@react-native-firebase/auth';
 
-const Register = (props: PropsWithChildren<any>) => {
+const Register = () => {
   const navigationback = useNavigation();
   const navigation = useNavigation();
-
   const [isLoading, setIsLoading] = useState(false);
-
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

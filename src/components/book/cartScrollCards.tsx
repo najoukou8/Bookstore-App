@@ -29,7 +29,7 @@ const CartList: React.FC<CartListProps> = ({ books, onRemove, onQuantityChange }
     return (
       <View style={styles.pageContainer} key={index}>
         {pageContent.map(book => (
-         <View style={styles.itemContainer}>
+         <View style={styles.itemContainer} key={book.id}>
             <CartCard
                     book={book}
                     onRemove={() => onRemove(book.id)}  
