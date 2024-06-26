@@ -2,6 +2,9 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 Notre application de bookstore fournit une architecture robuste basée sur React Native, utilisant Firebase pour l'authentification des utilisateurs et la gestion des données. Elle offre une mise en page responsive adaptée aux appareils mobiles, avec une gestion efficace du panier d'achats et des fonctionnalités de mise à jour de profil utilisateur. L'application utilise également une base de données Firebase pour stocker les informations des utilisateurs et des livres.
 
+Vous pouvez trouver le projet sur GitHub 
+https://github.com/najoukou8/Bookstore-App.git
+
 # Les fonctionnalités de notre application : 
 Connexion avec Email et Mot de Passe : on a utilisé le Firebase Auth pour authentifier l'utilisateur avec auth().signInWithEmailAndPassword(email, password). 
 
