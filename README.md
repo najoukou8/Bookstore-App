@@ -1,4 +1,4 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Présentation de notre App 
 
 Notre application de bookstore fournit une architecture robuste basée sur React Native, utilisant Firebase pour l'authentification des utilisateurs et la gestion des données. Elle offre une mise en page responsive adaptée aux appareils mobiles, avec une gestion efficace du panier d'achats et des fonctionnalités de mise à jour de profil utilisateur. L'application utilise également une base de données Firebase pour stocker les informations des utilisateurs et des livres.
 
