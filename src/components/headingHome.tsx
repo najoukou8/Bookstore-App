@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import Icon from 'react-native-vector-icons/Ionicons';
-import { FontSize, FontFamily, Color } from "../assets/style/globalStyles";
+import { FontFamily, Color } from "../assets/style/globalStyles";
 
 interface HeadingProps {
   title: string;
@@ -13,7 +12,6 @@ const HeadingHome: React.FC<HeadingProps> = ({ title, onPressBack }) => {
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <TouchableOpacity onPress={onPressBack} >
-        <Icon name="search-outline" size={24} color="black" />
       </TouchableOpacity>
     </View>
   );

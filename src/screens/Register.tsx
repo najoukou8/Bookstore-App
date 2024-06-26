@@ -42,8 +42,8 @@ const Register = (props: PropsWithChildren<any>) => {
     setIsLoading(true);
     auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        // Save additional user data to Firestore
+      .then((userCredential) => {
+        const user = userCredential.user;
         database()
           .ref('users/' + user.uid)
           .set({
